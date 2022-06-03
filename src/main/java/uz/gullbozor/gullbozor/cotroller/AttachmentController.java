@@ -73,12 +73,12 @@ public class  AttachmentController {
                     mainAttachRepo.save(mainAttach);
                     Path path = Paths.get(uploadDirectory + "/" + name);
                     Files.copy(file.getInputStream(), path);
-                    imageIds.append(mainAttach.getName()+"_");
+                    imageIds.append(mainAttach.getId()+"_");
                 }
             }
         String result = imageIds.substring(0, imageIds.length() - 1);
 
-        return imageIds.toString();
+        return result;
     }
 
     @PostMapping("/bestFlower/upload")
